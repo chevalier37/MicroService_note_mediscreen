@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mediscreen.model.Note;
@@ -20,7 +21,8 @@ public class NoteService {
 	}
 
 	public List<Note> findNoteByPatientId(String patientId) {
-		return noteRepository.findAllNoteBypatientId(patientId);
+		Sort sort = Sort.by(Sort.Direction.DESC, "date");
+		return noteRepository.findAllNoteBypatientId(patientId, sort);
 	}
 
 	public Optional<Note> findNoteById(String noteId) {

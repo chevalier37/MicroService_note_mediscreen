@@ -1,5 +1,7 @@
 package com.mediscreen.model;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -16,9 +18,22 @@ public class Note {
 	@Field(value = "note")
 	private String note;
 
-	public Note(String patientId, String note) {
+	@Field(value = "date")
+	private Date date;
+
+	public Note(String patientId, String note, Date date) {
+		super();
 		this.patientId = patientId;
 		this.note = note;
+		this.date = date;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getId() {
