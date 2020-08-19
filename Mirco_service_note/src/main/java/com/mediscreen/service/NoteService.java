@@ -20,7 +20,7 @@ public class NoteService {
 		return noteRepository.save(note);
 	}
 
-	public List<Note> findNoteByPatientId(String patientId) {
+	public List<Note> findNoteByPatientId(int patientId) {
 		Sort sort = Sort.by(Sort.Direction.DESC, "date");
 		return noteRepository.findAllNoteBypatientId(patientId, sort);
 	}

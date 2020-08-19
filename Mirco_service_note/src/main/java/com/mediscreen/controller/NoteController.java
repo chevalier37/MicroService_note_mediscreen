@@ -22,12 +22,11 @@ public class NoteController {
 
 	@PostMapping("addNote")
 	public Note addNote(@RequestBody Note note) {
-		System.out.println(note);
 		return noteService.addNote(note);
 	}
 
 	@GetMapping("listNote/{patientId}")
-	public List<Note> listNotes(@PathVariable(value = "patientId") String patientId) {
+	public List<Note> listNotes(@PathVariable(value = "patientId") int patientId) {
 		return noteService.findNoteByPatientId(patientId);
 	}
 

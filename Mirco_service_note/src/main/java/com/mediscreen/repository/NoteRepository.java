@@ -13,5 +13,5 @@ import com.mediscreen.model.Note;
 public interface NoteRepository extends MongoRepository<Note, String> {
 
 	@Query("{ 'patientId' : ?0 }")
-	List<Note> findAllNoteBypatientId(String patientId, Sort sort);
+	List<Note> findAllNoteBypatientId(int patientId, Sort sort);
 }

@@ -1,6 +1,6 @@
 package com.mediscreen.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,26 +13,25 @@ public class Note {
 	private String id;
 
 	@Field(value = "patientId")
-	private String patientId;
+	private int patientId;
 
 	@Field(value = "note")
 	private String note;
 
 	@Field(value = "date")
-	private Date date;
+	private LocalDate date;
 
-	public Note(String patientId, String note, Date date) {
-		super();
+	public Note(int patientId, String note, LocalDate date) {
 		this.patientId = patientId;
 		this.note = note;
 		this.date = date;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
@@ -44,11 +43,11 @@ public class Note {
 		this.id = id;
 	}
 
-	public String getPatientId() {
+	public int getPatientId() {
 		return patientId;
 	}
 
-	public void setPatientId(String patientId) {
+	public void setPatientId(int patientId) {
 		this.patientId = patientId;
 	}
 
