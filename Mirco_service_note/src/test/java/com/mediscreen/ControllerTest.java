@@ -1,12 +1,13 @@
 package com.mediscreen;
 
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -38,7 +39,7 @@ public class ControllerTest {
 	@Test
 	public void getNoteTest() throws Exception {
 		Note note = new Note(50, "note test", LocalDate.now());
-		when(noteService.findNoteById("5f3bcaf760fcf35d75eba60b").get()).thenReturn(note);
+		Mockito.when(noteService.findNoteById("5f3bcaf760fcf35d75eba60b")).thenReturn(Optional.of(note));
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/note/getNote/5f3bcaf760fcf35d75eba60b"))
 				.andExpect(status().isOk());
 	}

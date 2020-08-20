@@ -32,8 +32,9 @@ public class NoteController {
 
 	@GetMapping("getNote/{noteId}")
 	public Note getNote(@PathVariable(value = "noteId") String noteId) {
-		return noteService.findNoteById(noteId)
+		Note note = noteService.findNoteById(noteId)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid note Id:" + noteId));
+		return note;
 	}
 
 }
