@@ -4,9 +4,9 @@
 > Port d'écoute : 9002
 
 # Rapports de tests
-![image info](./surefire_note.png)
+![image info](./surefire_note2.png)
 
 # Rapport de couverture
-![image info](./jacoco_note.png)
+![image info](./jacoco_note2.png)
 
 
